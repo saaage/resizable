@@ -1,0 +1,17 @@
+* {
+	box-sizing: border-box;
+}
+
+.app {
+	font-family: sans-serif;
+	text-align: center;
+	height: 100vh;
+	text-align: left;
+}
+
+h1 {
+	color: #333;
+	font-family: monospace;
+}
+
+@import './resize-box';
