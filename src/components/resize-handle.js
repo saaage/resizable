@@ -8,7 +8,6 @@ export function ResizeHandle({ side }) {
 		const { top, right, bottom, left } = box && box.getBoundingClientRect();
 
 		function resize(e) {
-			console.log("YO", e);
 			const mousePos = e[`client${mouseDirection}`];
 			if (side === "top") {
 				box.style.top = `${mousePos}px`;
@@ -26,15 +25,15 @@ export function ResizeHandle({ side }) {
 			}
 		}
 
-		window.addEventListener("touchmove", resize);
+		window.addEventListener("mousemove", resize);
 		window.addEventListener(
-			"touchend",
+			"mouseup",
 			() => {
-				window.removeEventListener("touchstart", resize);
+				window.removeEventListener("mousemove", resize);
 			},
 			{ once: true }
 		);
 	}
 
-	return <div className={`resize-handle ${side}`} onTouchStart={start} />;
+	return <div className={`resize-handle ${side}`} onMouseDown={start} />;
 }
